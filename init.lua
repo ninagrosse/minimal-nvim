@@ -24,6 +24,17 @@ vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 vim.opt.cursorline = true -- Highlight current line
 vim.opt.modeline = true -- Enable modelines
 vim.opt.fillchars:append({ eob = " " }) -- Hide end-of-buffer (~) characters
+vim.opt.list = true -- use special characters to represent things like tabs or trailing spaces
+vim.opt.listchars = {
+	tab = "▏ ",
+	trail = "·",
+	extends = "»",
+	precedes = "«",
+}
+vim.opt.confirm = true -- show dialog for unsaved file(s) before quit
+vim.opt.updatetime = 200 -- save swap file with 200ms debouncing
+vim.opt.undofile = true -- enable persistent undo
+vim.opt.undolevels = 10000 -- 10x more undo levels
 
 -- Keybindings
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true }) -- ESC cancels search highlight
