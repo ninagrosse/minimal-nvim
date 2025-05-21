@@ -36,6 +36,13 @@ vim.opt.updatetime = 200 -- save swap file with 200ms debouncing
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.undolevels = 10000 -- 10x more undo levels
 
+-- Reset cursor after quitting nvim
+vim.api.nvim_create_autocmd("ExitPre", {
+	group = vim.api.nvim_create_augroup("Exit", { clear = true }),
+	command = "set guicursor=a:hor90",
+	desc = "Set cursor back to unterline when leaving Neovim.",
+})
+
 -- Keybindings
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", { noremap = true, silent = true }) -- ESC cancels search highlight
 vim.keymap.set("n", "<leader>-", ":split<CR>", { noremap = true, silent = true }) -- Split window below
